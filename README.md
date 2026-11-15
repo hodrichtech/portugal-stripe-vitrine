@@ -1,4 +1,4 @@
-# Vitrine Portugal — Produtos & Marcas Oficiais
+# Vitrine Portugal — Vinhos e Sabores de Excelência QA
 
 Publicado soberanamente via **Sophia Editorial & saas-mei bunker engine** no **GitHub Pages**.
 
