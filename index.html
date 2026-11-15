@@ -11,21 +11,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-dark: #0a0f1d;
-      --bg-card: #131b2e;
-      --bg-card-hover: #1a253e;
-      --bg-modal: #0e1526;
+      --bg-dark: #070a12;
+      --bg-card: #0f172a;
+      --bg-card-hover: #1e293b;
+      --bg-modal: #0a0f1d;
       --primary: #38bdf8;
-      --primary-hover: #0ea5e9;
-      --stripe-purple: #635bff;
-      --stripe-purple-hover: #4b45c6;
+      --primary-hover: #38bdf8;
+      --stripe-purple: #0284c7;
+      --stripe-purple-hover: #0284c7;
       --success: #10b981;
       --danger: #ef4444;
       --warning: #f59e0b;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --border-color: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(56, 189, 248, 0.3);
+      --border-highlight: rgba(212, 175, 55, 0.4);
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Outfit', sans-serif;
     }
@@ -34,6 +34,30 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #25d366;
+      color: #fff;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.2s ease;
+    }
+    .whatsapp-float-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+      color: #fff;
     }
 
     body {
@@ -1332,7 +1356,7 @@
             <div class="product-footer">
               <div class="price-container">
                 <span class="price-label">Preço Final</span>
-                <span class="price-value" id="price-display-0">27,90 €</span>
+                <span class="price-value" id="price-display-0">33,40 €</span>
               </div>
               <div class="action-wrap">
                 <button onclick="openCheckoutModal(0)" class="btn-buy"><i class="fa-solid fa-cart-shopping"></i> Comprar Agora</button>
@@ -1453,7 +1477,7 @@
     <section id="arquitetura" class="arch-section">
       <div class="arch-header-center">
         <h2>Como Funciona Esta Arquitetura Sem Domínio Privado</h2>
-        <p>Entenda como esta montra opera em produção com custo fixo <strong>0,00 €/mês</strong>, segurança bancária e alta disponibilidade europeia sem servidores dedicados.</p>
+        <p>Compreenda por que a combinação entre GitHub Pages, Fastly CDN Global e Stripe Checkout nativo elimina todos os custos fixos mensais.</p>
       </div>
 
       <div class="arch-cards-3">
@@ -1558,6 +1582,7 @@
   <footer class="site-footer">
     <p>Vitrine Portugal Stripe • Construído Soberanamente no Bunker Engine Sophia Editorial • Repositório: <a href="https://github.com/hodrichtech/portugal-stripe-vitrine" target="_blank">hodrichtech/portugal-stripe-vitrine</a></p>
     <p style="margin-top: 0.5rem; font-size: 0.8rem;">Em conformidade com as normas fiscais da Autoridade Tributária e Aduaneira (AT) e regras de comércio eletrónico da União Europeia.</p>
+    
   </footer>
 
   <!-- =======================================================================
@@ -1767,8 +1792,8 @@
   <!-- Runtime Client-Side Logic -->
   <script>
     // Embedded Data from Server
-    const STORE_PRODUCTS = [{"id": "prod_azeite_01", "title": "Azeite Virgem Extra Transmontano DOP (500ml)", "category": "Gourmet & Azeites", "description": "", "price": 27.9, "price_str": "27,90 €", "stock": 20, "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500", "stripe_link": ""}, {"id": "prod_pasteis_02", "title": "Pastéis de Nata Tradicionais de Belém (Caixa de 6 un.)", "category": "Doçaria Tradicional", "description": "Massa folhada estaladiça com recheio cremoso cozido em forno de pedra a alta temperatura. Acompanha saquetas de canela e açúcar em pó.", "price": 9.9, "price_str": "9,90 €", "stock": 40, "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500", "stripe_link": ""}, {"id": "prod_vinho_03", "title": "Vinho Tinto Douro Reserva Especial (750ml)", "category": "Vinhos & Espirituosos", "description": "Vinho com estágio de 12 meses em barricas de carvalho francês. Notas ricas a frutos vermelhos silvestres, esteva e especiarias finas.", "price": 22.0, "price_str": "22,00 €", "stock": 18, "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500", "stripe_link": ""}, {"id": "prod_queijo_04", "title": "Queijo da Serra da Estrela DOP Curado (500g)", "category": "Queijaria Artesanal", "description": "Queijo amanteigado tradicional produzido na região demarcada com leite cru de ovelha bordaleira e flor do cardo natural.", "price": 18.9, "price_str": "18,90 €", "stock": 12, "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500", "stripe_link": ""}, {"id": "prod_cha_05", "title": "Chá Preto Gorreana Broken Leaf Açores (100g)", "category": "Chás & Infusões", "description": "Produzido na secular e única plantação de chá da Europa, na Ilha de São Miguel. Aroma intenso e sabor aveludado sem conservantes.", "price": 6.5, "price_str": "6,50 €", "stock": 35, "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500", "stripe_link": ""}, {"id": "prod_sabonete_06", "title": "Sabonete Tradicional de Alfazema do Alentejo (150g)", "category": "Cosmética & Bem-Estar", "description": "Produzido artesanalmente com base 100% vegetal e óleo essencial de alfazema colhida no Alentejo. Embalado manualmente em papel kraft.", "price": 5.9, "price_str": "5,90 €", "stock": 0, "image": "https://images.unsplash.com/photo-1607006311824-d2e85098ff30?w=500", "stripe_link": ""}];
-    const STORE_CONFIG = {"site_id": "site_portugal_stripe", "repo_slug": "portugal-stripe-vitrine", "tax_regime": "art53_exempt", "pages_url": "https://hodrichtech.github.io/portugal-stripe-vitrine/", "default_vat_rate": 23.0, "reduced_vat_rate": 6.0};
+    const STORE_PRODUCTS = [{"id": "prod_azeite_01", "title": "Azeite Virgem Extra Transmontano DOP (500ml)", "category": "Gourmet & Azeites", "description": "", "price": 33.4, "price_str": "33,40 €", "stock": 20, "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500", "stripe_link": ""}, {"id": "prod_pasteis_02", "title": "Pastéis de Nata Tradicionais de Belém (Caixa de 6 un.)", "category": "Doçaria Tradicional", "description": "Massa folhada estaladiça com recheio cremoso cozido em forno de pedra a alta temperatura. Acompanha saquetas de canela e açúcar em pó.", "price": 9.9, "price_str": "9,90 €", "stock": 40, "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500", "stripe_link": ""}, {"id": "prod_vinho_03", "title": "Vinho Tinto Douro Reserva Especial (750ml)", "category": "Vinhos & Espirituosos", "description": "Vinho com estágio de 12 meses em barricas de carvalho francês. Notas ricas a frutos vermelhos silvestres, esteva e especiarias finas.", "price": 22.0, "price_str": "22,00 €", "stock": 18, "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500", "stripe_link": ""}, {"id": "prod_queijo_04", "title": "Queijo da Serra da Estrela DOP Curado (500g)", "category": "Queijaria Artesanal", "description": "Queijo amanteigado tradicional produzido na região demarcada com leite cru de ovelha bordaleira e flor do cardo natural.", "price": 18.9, "price_str": "18,90 €", "stock": 12, "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=500", "stripe_link": ""}, {"id": "prod_cha_05", "title": "Chá Preto Gorreana Broken Leaf Açores (100g)", "category": "Chás & Infusões", "description": "Produzido na secular e única plantação de chá da Europa, na Ilha de São Miguel. Aroma intenso e sabor aveludado sem conservantes.", "price": 6.5, "price_str": "6,50 €", "stock": 35, "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500", "stripe_link": ""}, {"id": "prod_sabonete_06", "title": "Sabonete Tradicional de Alfazema do Alentejo (150g)", "category": "Cosmética & Bem-Estar", "description": "Produzido artesanalmente com base 100% vegetal e óleo essencial de alfazema colhida no Alentejo. Embalado manualmente em papel kraft.", "price": 5.9, "price_str": "5,90 €", "stock": 0, "image": "https://images.unsplash.com/photo-1607006311824-d2e85098ff30?w=500", "stripe_link": ""}];
+    const STORE_CONFIG = {"site_id": "site_portugal_stripe", "repo_slug": "portugal-stripe-vitrine", "tax_regime": "art53_exempt", "pages_url": "https://hodrichtech.github.io/portugal-stripe-vitrine/", "default_vat_rate": 23.0, "reduced_vat_rate": 6.0, "enable_simulator": true, "global_stripe_link": ""};
 
     let state = {
       currentRegime: STORE_CONFIG.tax_regime || 'art53_exempt',
@@ -2037,5 +2062,6 @@
       if (e.target.id === 'stripe-checkout-modal') closeCheckoutModal();
     });
   </script>
+  
 </body>
 </html>
